@@ -1,0 +1,8 @@
+# Optional DashScope-compatible embedding and LLM keyword extraction:
+#   RAG_EMBEDDING=dashscope
+#   RAG_HYBRID_ENABLED=true
+#
+# The code uses the OpenAI-compatible client against DashScope or another
+# OpenAI-compatible endpoint.
+
+openai>=1.0.0

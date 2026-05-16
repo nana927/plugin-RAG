@@ -1,0 +1,7 @@
+# Optional RAG QA evaluation dependencies:
+#   python -m RAG.examples.evaluate_rag_qa path/to/testcases.json
+#
+# openai is used as an OpenAI-compatible client for DashScope or other LLM
+# providers when generating answers and judging answer accuracy.
+
+openai>=1.0.0

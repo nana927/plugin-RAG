@@ -1,0 +1,49 @@
+{
+  "dataset_name": "RAG意图识别问答测试用例_1000条_详细答案_明确关键词",
+  "version": "v2_detailed",
+  "total": 1000,
+  "generation_rules": {
+    "answer_style": "答案具体，可直接用于评测RAG回答质量；避免只写回答标准。",
+    "keyword_style": "关键词明确到实体、类别、指标、数值、平台、场景、动作。",
+    "privacy_rule": "允许引用问题相关的局部事实；禁止输出整份文档全文或无关章节原文。"
+  },
+  "intent_distribution": {
+    "qa": 222,
+    "extract": 178,
+    "reason_analysis": 159,
+    "plan_generation": 39,
+    "tool_call": 131,
+    "summary": 130,
+    "compare": 131,
+    "clarification": 4,
+    "privacy_rejection": 3,
+    "context_followup": 3
+  },
+  "source_document": {
+    "document_id": "20240509",
+    "document_version": "V1.0",
+    "document_date": "20240509"
+  },
+  "cases": [
+    {
+      "id": "rag_intent_0001",
+      "intent": "qa",
+      "sub_intent": "document_fact_qa",
+      "question": "文档编号是什么？",
+      "standard_answer": "20240509。",
+      "question_keywords": [
+        "文档编号"
+      ],
+      "answer_keywords": [
+        "文档编号",
+        "20240509"
+      ],
+      "expected_route": "retrieve_then_generate",
+      "need_retrieval": "easy",
+      "need_tool": false,
+      "tool_name": null,
+      "difficulty": "medium",
+      "source_scope": "仅允许依据上传的PRD文档内容作答；不得输出文档全文或与问题无关的大段原文。",
+      "sensitive_handling": "可引用与问题直接相关的字段、指标和短句；禁止整篇文档外泄，禁止输出无关章节全文。"
+    }]
+}

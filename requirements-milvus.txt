@@ -1,0 +1,7 @@
+# Optional Milvus vector store:
+#   RAG_BACKEND=milvus
+#
+# Install together with requirements-rag.txt unless your application does not
+# need the default FAISS backend.
+
+pymilvus>=2.4.0

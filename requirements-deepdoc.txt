@@ -1,0 +1,35 @@
+# Optional DeepDOC parser:
+#   RAG_CHUNKER=deepdoc
+#
+# DeepDOC is heavy and should be installed only when complex PDF/OCR/layout
+# parsing is required. Python 3.8+ is recommended.
+
+beartype>=0.21.0
+strenum>=0.4.2
+datrie>=0.8.2
+python-docx>=1.2.0
+pdfplumber>=0.11.7
+pypdf>=5.6.0
+tika>=3.1.0
+huggingface_hub>=0.33.0
+six>=1.17.0
+xgboost>=3.0.2,<3.1
+Pillow>=10.0.0
+opencv-python>=4.11.0.86
+onnxruntime>=1.22.0
+shapely>=2.1.1
+pyclipper>=1.3.0.post6
+hanziconv>=0.3.2
+nltk>=3.9.1
+chardet>=5.2.0
+tiktoken>=0.9.0
+pandas>=2.3.0
+openpyxl>=3.1.0
+python-pptx>=1.0.0
+readability-lxml>=0.8.4.1
+lxml_html_clean>=0.4.2
+html-text>=0.7.0
+markdown>=3.8.0
+jieba>=0.42.1
+demjson3>=3.0.6
+xpinyin>=0.7.6

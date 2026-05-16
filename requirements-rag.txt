@@ -1,0 +1,10 @@
+# Default local RAG mode:
+#   RAG_BACKEND=faiss
+#   RAG_EMBEDDING=hash
+#   RAG_CHUNKER=simple
+#
+# This is the minimum dependency set for the standalone FAISS backend.
+
+numpy>=1.21.0
+faiss-cpu>=1.8.0
+jieba>=0.42.1

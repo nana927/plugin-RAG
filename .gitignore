@@ -1,0 +1,48 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Python caches and local tooling
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Generated RAG indexes / local knowledge bases
+storage/
+RAG/storage/
+*.faiss
+*.npy
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs and temporary outputs
+*.log
+logs/
+tmp/
+temp/
+outputs/
+results/
+reports/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+
+# files
+data/files/*
+data/eval_outputs/*

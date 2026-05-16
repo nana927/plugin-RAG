@@ -1,0 +1,9 @@
+# Full RAG dependency set.
+# Install this only when you need every optional backend/parser/embedding mode.
+
+-r requirements-rag.txt
+-r requirements-milvus.txt
+-r requirements-dashscope.txt
+-r requirements-eval.txt
+-r requirements-local-embedding.txt
+-r requirements-deepdoc.txt
