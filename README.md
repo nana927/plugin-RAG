@@ -418,7 +418,7 @@ Question> q
 ### 2. 把普通文本文件放进知识库
 
 ```powershell
-python -m RAG.examples.faiss_local_cli --file RAG\README.md
+python -m RAG.examples.faiss_local_cli --file filepath
 ```
 
 参数说明：
@@ -431,7 +431,7 @@ python -m RAG.examples.faiss_local_cli --file RAG\README.md
 如果不想遇到重复文件时确认，可以加 `-y`：
 
 ```powershell
-python -m RAG.examples.faiss_local_cli --file RAG\README.md -y
+python -m RAG.examples.faiss_local_cli --file filepath -y
 ```
 
 开启“向量 + 关键词重排”：
@@ -454,17 +454,7 @@ RAG_RETRIEVAL_DEBUG=true
 [retrieval-debug] final score
 ```
 
-### 3. 把 PDF 简历放进知识库
-
-```powershell
-python -m RAG.examples.faiss_local_cli --file "E:\项目\大模型学习\week7\简历.pdf"
-```
-
-如果知识库里已经有同名或同路径文件，会提示是否清空当前知识库并重新导入。
-
-注意：当前底层只支持清空整个 knowledge base，还不支持只删除某一个文件的旧 chunks。
-
-### 4. 使用 Milvus 向量库
+### 3. 使用 Milvus 向量库
 
 默认示例使用本地 FAISS。如果要走 Milvus，需要先准备两件事：
 
@@ -473,7 +463,7 @@ python -m RAG.examples.faiss_local_cli --file "E:\项目\大模型学习\week7\�
 2. 本机或远程启动 Milvus 服务，并保证 19530 端口可访问。
 ```
 
-#### 4.1 安装 pymilvus
+#### 3.1 安装 pymilvus
 
 在 `test_agent` 环境里安装 Milvus Python SDK：
 
@@ -489,7 +479,7 @@ pip install -r RAG\requirements-milvus.txt
 python -c "import pymilvus; print(pymilvus.__version__)"
 ```
 
-#### 4.2 安装并启动 Milvus 服务
+#### 3.2 安装并启动 Milvus 服务
 
 Milvus 官方 Docker Compose 文档：
 
@@ -595,7 +585,7 @@ docker compose down
 Remove-Item -Recurse -Force .\volumes
 ```
 
-#### 4.3 让 RAG 走 Milvus
+#### 3.3 让 RAG 走 Milvus
 
 设置 RAG 使用 Milvus：
 
