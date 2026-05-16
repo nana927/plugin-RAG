@@ -81,6 +81,92 @@ data/eval_outputs*/
 这些目录或文件是运行缓存、索引和评测结果，不建议提交到 GitHub。
 ```
 
+
+
+## 支持的文件格式
+
+当前文件解析由 `RAG_CHUNKER` 决定：
+
+```text
+RAG_CHUNKER=simple
+  适合普通文本类文件。
+  解析方式：直接读取文本内容，再按 RAG_CHUNK_SIZE / RAG_CHUNK_OVERLAP 切块。
+
+RAG_CHUNKER=deepdoc
+  适合 PDF、Office 文档、复杂版面和表格。
+  解析方式：走 DeepDoc / RAGFlow 风格解析链路，包含 PDF 解析、OCR、版面识别、表格识别等。
+```
+
+### simple chunker
+
+适合：
+
+```text
+.txt
+.md
+.json
+.jsonl
+.csv
+.log
+其他可以按 UTF-8 文本读取的文件
+```
+
+不适合：
+
+```text
+.pdf
+.docx
+.pptx
+.xlsx
+扫描件
+复杂表格文档
+```
+
+### deepdoc chunker
+
+适合：
+
+```text
+.pdf
+.docx
+.doc
+.pptx
+.ppt
+.xlsx
+.xls
+.html
+.htm
+.json
+.md
+.txt
+```
+
+其中：
+
+```text
+PDF
+  支持普通文本 PDF，也支持需要 OCR / 版面识别 / 表格识别的复杂 PDF。
+
+DOCX / PPTX / XLSX
+  依赖 python-docx / python-pptx / openpyxl 等解析库。
+
+HTML / Markdown / TXT / JSON
+  可以通过 DeepDoc parser 统一解析，但如果只是普通文本，simple chunker 更轻。
+```
+
+注意：
+
+```text
+1. 使用 deepdoc 前需要安装 requirements-deepdoc.txt。
+2. 扫描件 PDF 的 OCR 效果依赖 DeepDoc 模型和图片质量。
+3. 表格会优先保留结构，HTML-like 的 <table>/<tr>/<td>/<th> 会在入库前转成结构化文本和 metadata。
+4. 当前不建议把音频、视频、图片文件直接入库；如需支持，需要先增加专门的 OCR/ASR/图像理解预处理链路。
+```
+
+## 
+
+
+
 ## 代码调用关系
 
 ### 文件入库
@@ -898,7 +984,7 @@ RAG_EVAL_RUN_ID=20260514_101500
 
 # 项目持续优化中...后续会做：
 
-1、更多文件格式的支持；
+1、对pdf、doc以外的文件格式更好地的支持；
 
 2、效果的提升；
 
